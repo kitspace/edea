@@ -1,0 +1,3 @@
+[submodule "tests/kicad_projects/kicad6-sch-files"]
+	path = tests/kicad_projects/kicad6-sch-files
+	url = https://github.com/kitspace-test-repos/kicad6-sch-files

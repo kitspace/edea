@@ -19,7 +19,6 @@ for root, dirs, files in os.walk(kicad_folder):
             path = os.path.join(root, file)
             kicad_pcb_files.append(path)
 
-print('len:', len(kicad_pcb_files))
 
 def test_parse_file_collection():
     assert len(kicad_pcb_files) > 0

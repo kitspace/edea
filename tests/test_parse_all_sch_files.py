@@ -40,8 +40,14 @@ for root, dirs, files in os.walk(kicad_folder):
 class TestParser:
     def test_parse_all_sch_files(self):
         assert len(kicad_sch_files) > 0
+
         for path in kicad_sch_files:
-            print(f"Parsing {path}")
             with open(path, encoding="utf-8") as sch_file:
-                sch = from_str(sch_file.read())
+                contents = sch_file.read()
+
+            try:
+                sch = from_str(contents)
+            except Exception as e:
+                assert False, f"Parsing failed for {path}: {e}"
+
             assert sch is not None

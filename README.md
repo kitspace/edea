@@ -22,7 +22,7 @@ python -m edea
 The tests should run in the venv to make sure the development tools are there:
 
 ```sh
-# we need the submodule kicad6-file-collection
+# we need the kicad6-test-files submodule
 git submodule update --init
 # outside the poetry environment:
 poetry run pytest

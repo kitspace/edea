@@ -10,7 +10,7 @@ import re
 from edea.edea import Project, VersionError
 
 test_folder = os.path.dirname(os.path.realpath(__file__))
-kicad_folder = os.path.join(test_folder, "kicad_projects/kicad6-file-collection")
+kicad_folder = os.path.join(test_folder, "kicad_projects/kicad6-test-files")
 
 kicad_pcb_files = []
 for root, dirs, files in os.walk(kicad_folder):
@@ -20,7 +20,7 @@ for root, dirs, files in os.walk(kicad_folder):
             kicad_pcb_files.append(path)
 
 
-def test_parse_file_collection():
+def test_parse_all():
     assert len(kicad_pcb_files) > 0
     for pcb_path in kicad_pcb_files:
         sch_path = re.sub(r"\.kicad_pcb$", ".kicad_sch", pcb_path)
@@ -28,8 +28,7 @@ def test_parse_file_collection():
         try:
             pro.parse()
         except VersionError as e:
-            # print(f"skipping {sch_path} due to old format: {e}")
-            pass
+            print(f"skipping {sch_path} due to old format: {e}")
         except FileNotFoundError as e:
             print(f"project {sch_path} appears to be incomplete")
         except AttributeError as e:

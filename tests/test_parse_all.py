@@ -22,7 +22,6 @@ for root, dirs, files in os.walk(kicad_folder):
 
 assert len(kicad_pcb_files) > 0
 
-@pytest.mark.skipif("GITLAB_CI" in os.environ, reason="Gitlab CI cannot cope with this test.")
 @pytest.mark.parametrize("pcb_path", kicad_pcb_files)
 def test_parse_all(pcb_path):
     sch_path = re.sub(r"\.kicad_pcb$", ".kicad_sch", pcb_path)

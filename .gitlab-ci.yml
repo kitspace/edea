@@ -27,7 +27,7 @@ test:
   # our parse_all test can take a long time
   timeout: 3h
   script:
-    - poetry run pytest --workers=1 --cov=edea
+    - poetry run pytest --workers=5 --cov=edea
 
 lint:
   script:

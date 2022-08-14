@@ -26,4 +26,4 @@ jobs:
       - name: Install pytest
         run: python -m pip install pytest pytest-cov
       - name: Run tests
-        run: pytest --cov=edea
+        run: pytest --workers=3 --cov=edea

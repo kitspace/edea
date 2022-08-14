@@ -24,10 +24,8 @@ before_script:
   - poetry install
 
 test:
-  # our parse_all test can take a long time
-  timeout: 3h
   script:
-    - poetry run pytest --workers=5 --cov=edea
+    - poetry run pytest --workers=auto --exitfirst --cov=edea
 
 lint:
   script:

@@ -25,7 +25,7 @@ before_script:
 
 test:
   script:
-    - poetry run pytest --workers=auto --exitfirst --cov=edea
+    - poetry run pytest --exitfirst --cov=edea
 
 lint:
   script:

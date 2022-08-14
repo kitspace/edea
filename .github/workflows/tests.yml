@@ -24,4 +24,4 @@ jobs:
       - name: Install dependencies
         run: poetry install
       - name: Run tests
-        run: poetry run pytest --workers=2 --cov=edea
+        run: poetry run pytest --workers=auto --exitfirst --cov=edea
